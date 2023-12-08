@@ -18,6 +18,6 @@ document.addEventListener('DOMContentLoaded', () =>  {
         localStorage.setItem('pin', pin);
         localStorage.setItem('username', username);
 
-        window.location.href = '../pages/index.html';
+        window.location.href = '../pages/main.html';
     }
 });
