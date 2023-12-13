@@ -1,28 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Form</title>
-    <link rel="stylesheet" href="../stylesheet/signup.css">
+    <link rel="stylesheet" href="../stylesheet/verification.css">
+
 </head>
+
 <body>
+    <a href="../index.html" class="logo"><span>P</span>aye</a>
+
     <div class="container">
-        <a href="home.html" class="logo"><span>P</span>aye</a>
-        <form class="signup-form" id="loginForm">
+        <form id="form" class="form" action="main.html">
             <h2>Login</h2>
+            <div class="form-control">
+                <label for="username">Username</label>
+                <input type="text" id="username" class="login-username" placeholder="Username">
+                <small>Error message</small>
+            </div>
 
-            <label for="pin">PIN:</label>
-            <input type="password" id="pin" name="pin" required>
-
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
+            <div class="form-control">
+                <label for="pin">Password</label>
+                <input type="password" id="pin" name="pin" class="login-password" placeholder="Password">
+                <small>Error message</small>
+            </div>
 
             <button type="submit">Login</button>
+
+            <p><a href="signup.html">Sign up</a> if you don't have an account</p>
         </form>
     </div>
 
-    <script src="../js/common.js"></script>
-    <script src="../js/login.js"></script>
+
+    <script src="../js/loginverification.js"></script>
 </body>
+
 </html>

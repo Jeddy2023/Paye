@@ -10,6 +10,7 @@
 
 body {
     overflow: hidden;
+    transition: 3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .header{
@@ -100,4 +101,65 @@ body {
     position: absolute;
     width: 900px;
     bottom: -160px;
+}
+
+
+.splash-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-color: #8f00ff;
+    background: linear-gradient(to bottom right, #8f00ff, red);
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+
+.main-content {
+    display: none;
+    opacity: 0;
+    animation: fadeIn 0.1s forwards ease-in;
+}
+
+@keyframes fadeIn {
+    to {
+        display: block;
+        opacity: 1;
+    }
+}
+
+.splash-screen .logo {
+    color: transparent;
+    font-size: 5rem;
+    text-decoration: none;
+    font-weight: bold;
+    animation: fadeInText 1s ease-in-out forwards, fadeOutText 1s ease-in-out 1s forwards;
+}
+
+.splash-screen .logo span {
+    color: transparent;
+    animation: fadeInText .7s ease-in-out forwards, fadeOutText .7s ease-in-out .7s forwards;
+}
+
+
+
+@keyframes fadeInText {
+    from {
+        color: transparent;
+    }
+
+    to {
+        color: white;
+    }
+}
+
+@keyframes fadeOutText {
+    from {
+        color: white;
+    }
+
+    to {
+        color: transparent;
+    }
 }

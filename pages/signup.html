@@ -1,29 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup Form</title>
-    <link rel="stylesheet" href="../stylesheet/signup.css">
+    <link rel="stylesheet" href="../stylesheet/verification.css">
 </head>
+
 <body>
+    <a href="../index.html" class="logo"><span>P</span>aye</a>
+
     <div class="container">
-        <a href="home.html" class="logo"><span>P</span>aye</a>
-        <form class="signup-form" id="signupForm">
-            <h2>Signup</h2>
-            <label for="fullName">Full Name:</label>
-            <input type="text" id="fullName" name="fullName" required>
+        <form id="form" class="form" action="../pages/main.html">
+            <h2>Sign up</h2>
+            <div class="form-control">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Username">
+                <small>Error message</small>
+            </div>
 
-            <label for="pin">PIN:</label>
-            <input type="password" id="pin" name="pin" required>
+            <div class="form-control">
+                <label for="email">Email</label>
+                <input type="text" id="email" placeholder="Email">
+                <small>Error message</small>
+            </div>
 
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
+            <div class="form-control">
+                <label for="pin">Pin</label>
+                <input type="password" id="pin" name="pin" placeholder="Choose a PIN">
+                <small>Error message</small>
+            </div>
 
-            <button type="submit">Sign Up</button>
+            <div class="form-control">
+                <label for="pin2">Pin2</label>
+                <input type="password" id="pin2" placeholder="Confirn PIN">
+                <small>Error message</small>
+            </div>
+
+            <button type="submit">Signup</button>
         </form>
+
+        <p><a href="login.html">Login</a> if you already have an account</p>
     </div>
 
-    <script src="../js/common.js"></script>
+    <script src="../js/verification.js"></script>
 </body>
+
 </html>

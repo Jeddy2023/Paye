@@ -1,31 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./stylesheet/style.css">
 </head>
+
 <body>
-    <section class="header">
+    <div class="splash-screen">
         <a href="#" class="logo"><span>P</span>aye</a>
+    </div>
 
-        <div>
-            <ul class="navbar">
-                <li><a href="pages/login.html">Login</a></li>
-                <li><a href="pages/signup.html">Sign Up</a></li>
-            </ul>
-        </div>
-    </section>
-
-    <section class="hero">
-        <div class="content">
-            <div class="finance">
-                Finance That Fits Your Life
+    <div class="main-content">
+        <section class="header">
+            <a href="#" class="logo"><span>P</span>aye</a>
+            <div>
+                <ul class="navbar">
+                    <li><a href="pages/login.html">Login</a></li>
+                    <li><a href="pages/signup.html">Sign Up</a></li>
+                </ul>
             </div>
-            <div class="send">Seamlessly send and receive money, effortlessly pay your bills, , and take full control of your finances - all in <span>Paye</span></div>
-        </div>
-        <img src="img/palm.png" alt="Finance" class="palm">
-    </section>
+        </section>
+
+        <section class="hero">
+            <div class="content">
+                <div class="finance">
+                    Finance That Fits Your Life
+                </div>
+                <div class="send">Seamlessly send and receive money, effortlessly pay your bills, and take full control
+                    of your finances all in <span>Paye</span></div>
+            </div>
+            <img src="img/palm.png" alt="Finance" class="palm">
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(function () {
+                document.querySelector('.splash-screen').style.display = 'none';
+                document.querySelector('.main-content').style.display = 'block';
+            }, 2000);
+        });
+    </script>
 </body>
+
 </html>
