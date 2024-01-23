@@ -1,12 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.cdnfonts.com/css/sofia-pro');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-:root {
-    --darkmode: rgb(38, 38, 38);
-    --darkmodeItemBackground-color: #262A33;
 }
 
 body {
@@ -18,7 +16,124 @@ body {
     font-family: 'Poppins', sans-serif;
     overflow-y: auto;
 }
+.notification-toast {
+    position: fixed;
+    bottom: 10px;
+    left: 20px;
+    right: 20px;
+    background: white;
+    max-width: 270px;
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    box-shadow: 0 5px 20px hsla(0, 0%, 0%, 0.15);
+    z-index: 5;
+    border-radius: 8px;
+    transition: transform 0.5s ease-in-out;
+    transform: translateX(-130%);
+}
+.notification-toast.active {
+    transform: translateX(0);
+}
+.toast-banner {
+    min-width: 70px;
+    max-width: 70px;
+    min-height: 70px;
+    max-height: 70px;
+}
 
+.toast-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+.toast-detail {
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.toast-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: black;
+}
+.logo {
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    font-family: 'Poppins', sans-serif;
+}
+
+.logo span {
+    color: #8f00ff;
+}
+
+.div1 {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 13px 10px;
+    border: 1px solid #888;
+    width: fit-content;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.modal-content label{
+    display: block;
+    font-size: 13px;
+    margin-left: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+.modal-content input {
+    border: 2px solid gainsboro;
+    display: block;
+    width: fit-content;
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+}
+.modal-content input:focus {
+    outline: 0;
+    border-color: gray;
+}
+.modal-content button {
+    cursor: pointer;
+    background-color: #382AA5;
+    border-radius: 4px;
+    color: white;
+    display: block;
+    font-size: 12px;
+    padding: 6px 12px;
+    margin-top: 10px;
+    transition: 0.3s;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    align-self: center;
+}
 .dashboard-container {
     width: 100%;
     display: flex;
@@ -142,7 +257,8 @@ body {
     margin-right: 5px;
     font-size: 20px;
 }
-.balance-notification #showBalanceButton{
+
+.balance-notification #showBalanceButton {
     margin-left: 10px;
     border: none;
     font-family: 'Poppins', sans-serif;
@@ -154,9 +270,11 @@ body {
     cursor: pointer;
     transition: 0.3s;
 }
-#showBalanceButton:hover{
-    background-color:grey ;
+
+#showBalanceButton:hover {
+    background-color: grey;
 }
+
 .main {
     width: 100%;
     margin-top: 50px;
@@ -292,11 +410,14 @@ body {
 
 
 
-.deposit-container, .withdraw-container, .transfer-container {
+.deposit-container,
+.withdraw-container,
+.transfer-container {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .container {
     position: relative;
     width: 800px;
@@ -305,23 +426,27 @@ body {
     border-radius: 10px;
     font-family: 'Poppins', sans-serif;
 }
+
 .container h2 {
     text-align: center;
     margin-bottom: 30px;
     color: #382AA5;
     font-family: 'Poppins', sans-serif;
 }
+
 .form-control {
     margin-bottom: 10px;
     padding-bottom: 20px;
     position: relative;
 }
+
 .form-control label {
     display: block;
     font-size: 13px;
     margin-left: 10px;
     font-family: 'Poppins', sans-serif;
 }
+
 .form-control input {
     border: 2px solid gainsboro;
     display: block;
@@ -331,16 +456,20 @@ body {
     border-radius: 5px;
     font-family: 'Poppins', sans-serif;
 }
+
 .form-control input:focus {
     outline: 0;
     border-color: gray;
 }
+
 .form-control.success input {
     border-color: green;
 }
+
 .form-control.error input {
     border-color: red;
 }
+
 .form-control small {
     color: red;
     position: absolute;
@@ -350,9 +479,11 @@ body {
     font-size: 10px;
     margin-left: 10px;
 }
+
 .form-control.form-control.error small {
     visibility: visible;
 }
+
 .form button {
     cursor: pointer;
     background-color: #382AA5;
@@ -363,6 +494,7 @@ body {
     padding: 12px;
     margin-top: 20px;
     width: 20%;
+    min-width: 100px;
     transition: 0.3s;
     border: none;
     font-family: 'Poppins', sans-serif;
@@ -391,6 +523,28 @@ body {
 
 }
 
+.resized-nav{
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+}
+
+.resized-nav i{
+    z-index: 30;
+}
+
+.resized-nav a i{
+    font-size: 30px !important;
+    color: #F98D04 !important;
+}
+.resized-nav i{
+    font-size:23px;
+}
+.resized-nav .logo{
+    font-size:20px;
+}
 @media(max-width:430px) {
     .container {
         width: 95%;
@@ -413,7 +567,7 @@ body {
         transition: 0.2s;
         z-index: 20;
     }
-    .content{
+    .main-content{
         margin-left: 0;
     }
     .fade::before{
@@ -433,7 +587,7 @@ body {
         border-radius: 10px;
         margin-bottom: 20px;
     }
-    .content nav{
+    .main-content nav{
         height: 130px;
         margin-left: 0;
         border-top-left-radius: 0;
@@ -441,7 +595,7 @@ body {
         border-radius: 10px;
         z-index: 1;
     }
-    .content nav .profile img{
+    .main-content nav .profile img{
         height: 70%;
         object-fit: cover;
     }
@@ -462,38 +616,57 @@ body {
     .wallet-container .box,.first-content .box{
         width: 100%;
     }
-    .content nav{
+    .main-content nav{
         padding: 0px 10px;
     }
-    .content nav .profile img{
+    .main-content nav .profile img{
         width: 80px;
         height: 60% !important;
     }
-    .content nav .profile span{
+    .main-content nav .profile span{
         font-size: 12px;
     }
-    .content nav .profile{
+    .main-content nav .profile{
         font-size: 16px;
     }
 }
 
-@media(max-width:604px){
-    .old-password button{
-        margin-top: 20px;
+@media(max-width:590px){
+    .main{
+        margin-top: 30px;
     }
-}
-@media(max-width:500px){
-    .old-password input{
-       width: 100%;
+    .dashmain-container{
+        flex-direction: column;
+    }
+    .dashmain-container .box{
+        width: 100%;
     }
 }
 
 @media(max-width:430px){
-    .balance-notification .balance span{
-        font-size: 16px;
+    .balance-notification{
+        flex-direction: column;
     }
-    .wallet-container .box button{
-        font-size: 13px;
-        padding: 10px 20px;
+    .balance-notification .balance span {
+        margin-right: 0px;
+        font-size: 10px;
+    }
+    .balance-notification #showBalanceButton{
+        margin-left: 0px;
+    }
+}
+
+@media(max-width:338px){
+    .main-content nav{
+        flex-direction: column;
+        padding: 20px 10px;
+        height: fit-content;
+        align-items: flex-start;
+    }
+    .main-content nav .balance-notification{
+        align-self: flex-end;
+    }
+    .dashmain-container .box .amount-balance h1{
+        display: none;
     }
 }

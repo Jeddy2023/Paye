@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./stylesheet/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
@@ -16,12 +17,11 @@
     <div class="main-content__home">
         <section class="header">
             <a href="#" class="logo"><span>P</span>aye</a>
-            <div>
-                <ul class="navbar">
-                    <li><a href="pages/login.html">Login</a></li>
-                    <li><a href="pages/signup.html">Sign Up</a></li>
-                </ul>
-            </div>
+            <i class='bx bx-menu-alt-right res-menu'></i>
+            <ul class="navbar">
+                <li><a href="pages/login.html">Login</a></li>
+                <li><a href="pages/signup.html">Sign Up</a></li>
+            </ul>
         </section>
 
         <section class="hero">
@@ -32,7 +32,8 @@
                 <div class="send">Seamlessly send and receive money, effortlessly pay your bills, and take full control
                     of your finances all in <span>Paye</span></div>
             </div>
-            <img src="img/palm.png" alt="Finance" class="palm">
+            <img src="img/palm - Copy.png" alt="Finance" class="palm palm1">
+            <img src="img/palm2 - Copy.png" alt="Finance" class="palm palm2">
         </section>
     </div>
 
@@ -42,6 +43,12 @@
                 document.querySelector('.splash-screen').style.display = 'none';
                 document.querySelector('.main-content__home').style.display = 'block';
             }, 2000);
+
+            const resmenu = document.querySelector(".res-menu")
+
+            resmenu.addEventListener("click", () => {
+                document.querySelector(".navbar").classList.toggle('active');
+            })
         });
     </script>
 </body>

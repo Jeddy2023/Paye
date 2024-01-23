@@ -9,41 +9,49 @@
 }
 
 body {
-    overflow: hidden;
     transition: 3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-.header{
+.header {
     width: 100%;
-    height: 50px;
-    padding: 10px 3%;
+    height: 8vh;
+    padding: 10px 4%;
     text-align: center;
-    background: #fff;
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-family: 'Poppins', sans-serif;
+    background-color: whitesmoke;
+    border-radius: 5px;
 }
-.logo{
+.header i{
+    display: none;
+    font-size: 1.5rem;
+}
+.logo {
     text-decoration: none;
     font-size: 1.8rem;
     font-weight: 600;
     color: #1a1a1a;
     font-family: 'Poppins', sans-serif;
 }
-.logo span{
+
+.logo span {
     color: #8f00ff;
 }
+
 .navbar {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .navbar li {
     list-style: none;
     padding: 0 20px;
     position: relative;
 }
+
 .navbar li a {
     text-decoration: none;
     font-size: 16px;
@@ -51,6 +59,7 @@ body {
     color: #1a1a1a;
     transition: 0.3s ease;
 }
+
 .navbar li a.active::after,
 .navbar li a:hover::after {
     content: "";
@@ -62,47 +71,52 @@ body {
     left: 20px;
 }
 
-.hero{
+.hero {
     width: 100%;
     height: 92vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
-    overflow: hidden;
-    padding: 0 20px;
 }
-.content{
+
+.content {
     text-align: center;
-    margin-top: 70px;
+    margin-top: 30px;
 }
-.finance{
+
+.finance {
     color: #18191f;
-    font-size: 78px;
+    font-size: 4.7rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
     font-family: 'Poppins', sans-serif;
 }
-.send{
+
+.send {
     color: #18191f;
     text-align: center;
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    padding-top: 32px;
+    padding-top: 20px;
     font-family: 'Poppins', sans-serif;
 }
-.send span{
+
+.send span {
     color: #8f00ff;
 }
-.palm{
-    position: absolute;
-    width: 900px;
-    bottom: -160px;
+
+.palm2 {
+    display: none;
 }
 
+.palm {
+    margin-top: 1%;
+    width: 100%;
+    height: 100%;
+}
 
 .splash-screen {
     display: flex;
@@ -119,7 +133,11 @@ body {
 .main-content__home {
     display: none;
     opacity: 0;
+    max-width: 1200px;
+    height: 100vh;
+    margin: 0 auto;
     animation: fadeIn 0.1s forwards ease-in;
+    padding: 15px;
 }
 
 @keyframes fadeIn {
@@ -142,8 +160,6 @@ body {
     animation: fadeInText .7s ease-in-out forwards, fadeOutText .7s ease-in-out .7s forwards;
 }
 
-
-
 @keyframes fadeInText {
     from {
         color: transparent;
@@ -161,5 +177,56 @@ body {
 
     to {
         color: transparent;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .finance{
+        font-size: 3.5rem;
+    }
+    .send{
+        font-size: 19px;
+    }
+    .palm1 {
+        display: none;
+    }
+    .palm2{
+        margin-top: 7%;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .finance{
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .header i{
+        display: flex;
+    }
+    .header{
+        position: relative;
+    }
+    .navbar{
+        display: none;
+        gap: 8px;
+        flex-direction: column;
+        background-color: black;
+        position: absolute;
+        right: 0;
+        bottom: -80px;
+        padding: 10px 2px;
+        transition:  0.5s ease-in-out;
+    }
+    .navbar.active{
+        display: flex;
+    }
+    .navbar li a{
+        color: white;
+    }
+    .navbar li:nth-child(2){
+        border-top: 1px solid white;
     }
 }

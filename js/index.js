@@ -4,6 +4,7 @@ const tabContents = document.querySelectorAll('.tab__item');
 const depositButton = document.querySelector('#dashmain .box:nth-child(2) button');
 const withdrawButton = document.querySelector('#dashmain .box:nth-child(3) button');
 const transferButton = document.querySelector('#dashmain .box:nth-child(4) button');
+const notification = document.querySelector('.notification-toast');
 
 // Function to update active tab and tab content
 function updateActiveTab(tabId) {
@@ -99,15 +100,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 updateBalanceDisplay();
                 // Update localStorage
                 localStorage.setItem('balance', balance);
+                message = `Successfully Deposited ₦${amount} `;
+                successMessage(message);
             });
         } else {
-            alert("Invalid amount!");
+            const error = "Invalid Amount"
+            errorMessage(error)
         }
 
         amountInput.value = "";
 
 
     }
+
     function withdraw(pin) {
         const amountInput = document.getElementById("withdrawInput");
         const amount = parseFloat(amountInput.value);
@@ -124,27 +129,34 @@ document.addEventListener('DOMContentLoaded', function () {
                     balance -= amount;
                     // Update localStorage
                     localStorage.setItem('balance', balance);
+                    const message = ` Succesfully withdrawn ₦${amount}`
+                    successMessage(message)
                 } else {
-                    alert("Insufficient funds!");
+                    const error = "Insufficient funds!"
+                    errorMessage(error)
                     return;
                 }
             } else if (enteredPin > 0 && enteredPin !== pin) {
-                alert("Incorrect pin");
+                const message = "Incorrect pin";
+                errorMessage(message);
                 return;
             } else {
-                alert("Input your pin");
+                const message = "Input your pin";
+                errorMessage(message);
                 return;
             }
 
             balanceElement.setAttribute("data-amount", balance);
             updateBalanceDisplay();
         } else {
-            alert("Invalid amount!");
+            const message = "Invalid amount!";
+            errorMessage(message);
         }
 
         amountInput.value = "";
         pinInput.value = "";
     }
+
     function transfer(pin) {
         const amountInput = document.getElementById("transferInput");
         const pinInput = document.getElementById("pinTransferInput");
@@ -159,7 +171,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const bank = bankElement.value.trim();
 
         if (accountName.length < 3 || accountNum.length < 3 || bank.length < 3) {
-            alert("Account name, account number, and bank must be at least 3 characters long.");
+            const error = `Account name, account number, and bank must be at least 3 characters long.`
+            errorMessage(error)
             return;
         }
 
@@ -174,29 +187,36 @@ document.addEventListener('DOMContentLoaded', function () {
                     balance -= amount;
                     // Update localStorage
                     localStorage.setItem('balance', balance);
-                    setTimeout(() => {
-                        alert(`You have successfully transferred ₦${amount} to ${accountName}, ${bank} bank`);
-                    }, 100);
+                    const message = `You have successfully transferred ₦${amount} to ${accountName}'s bank`
+                    successMessage(message);
                 } else {
-                    alert("Insufficient funds!");
+                    const error = `Insufficient funds!`
+                    errorMessage(error)
                     return;
                 }
             } else if (enteredPin > 0 && enteredPin !== pin) {
-                alert("Incorrect pin");
+                const error = `Incorrect pin`
+                errorMessage(error)
                 return;
             } else {
-                alert("Input your pin");
+                const error = `Input your pin`
+                errorMessage(error)
                 return;
             }
 
             balanceElement.setAttribute("data-amount", balance);
             updateBalanceDisplay();
         } else {
-            alert("Invalid amount!");
+            const error = `Invalid amount!`
+            errorMessage(error)
+            return;
         }
 
         amountInput.value = "";
         pinInput.value = "";
+        accountNameElement.value = "";
+        accountNumElement.value = "";
+        bankElement.value = "";
     }
 
     function showBalance(pin) {
@@ -208,6 +228,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (balanceElement.classList.contains("hide")) {
             modal.style.display = "flex";
+            pinInput.focus();
             pinModalSubmit.addEventListener("click", function () {
                 const enteredPin = pinInput.value;
                 if (enteredPin == parseInt(pin)) {
@@ -215,9 +236,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     balanceElement.classList.toggle("hide");
                     updateBalanceDisplay();
                     pinInput.value = "";
+                    const message = "Balance Shown Succesfully"
+                    successMessage(message)
+                    return
                 } else if (enteredPin != parseInt(pin)) {
-                    modal.style.display = "none";
-                    errorMessage.textContent = "Invalid Pin";
+                    error = "Invalid Pin";
+                    errorMessage(error)
+                    pinInput.value = "";
                 } else {
                     modal.style.display = "none";
                 }
@@ -229,7 +254,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         errorMessage.textContent = "";
     }
-
 
     function updateBalanceDisplay() {
         const balance = parseFloat(balanceElements[0].getAttribute("data-amount") || 0);
@@ -246,3 +270,39 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 });
+
+const errorMessage = (error) => {
+    notification.classList.add("active")
+    notification.innerHTML =
+        `
+        <div class="toast-banner">
+            <img src="../img/errorImage.png" alt="Error">
+        </div>
+        <div class="toast-detail">
+            <p class="toast-title">
+                ${error}
+            </p>
+        </div>
+    `
+    setTimeout(() => {
+        notification.classList.remove("active")
+    }, 3000);
+}
+
+const successMessage = (message) => {
+    notification.classList.add("active")
+    notification.innerHTML =
+        `
+        <div class="toast-banner">
+            <img src="../img/successImage.jpg" alt="Error">
+        </div>
+        <div class="toast-detail">
+            <p class="toast-title">
+                ${message}
+            </p>
+        </div>
+    `
+    setTimeout(() => {
+        notification.classList.remove("active")
+    }, 3000);
+}
